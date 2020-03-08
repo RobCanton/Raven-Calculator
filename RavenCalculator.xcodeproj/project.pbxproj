@@ -3,10 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B00D24A42412AF8A00EA44A6 /* RavenAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00D24A32412AF8A00EA44A6 /* RavenAPI.swift */; };
+		B00D24A62412B00600EA44A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B00D24A52412B00600EA44A6 /* GoogleService-Info.plist */; };
+		B00D24AE2413344C00EA44A6 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00D24AD2413344C00EA44A6 /* Stock.swift */; };
+		B00D24B02414286F00EA44A6 /* Evaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00D24AF2414286F00EA44A6 /* Evaluator.swift */; };
 		B039956C240B27E300B85515 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B039956B240B27E300B85515 /* AppDelegate.swift */; };
 		B039956E240B27E300B85515 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B039956D240B27E300B85515 /* SceneDelegate.swift */; };
 		B0399570240B27E300B85515 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B039956F240B27E300B85515 /* ViewController.swift */; };
@@ -14,9 +18,44 @@
 		B0399576240B27E300B85515 /* RavenCalculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0399574240B27E300B85515 /* RavenCalculator.xcdatamodeld */; };
 		B0399578240B27E400B85515 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0399577240B27E400B85515 /* Assets.xcassets */; };
 		B039957B240B27E400B85515 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0399579240B27E400B85515 /* LaunchScreen.storyboard */; };
+		B0399584240B282300B85515 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0399583240B282300B85515 /* UIView+Extensions.swift */; };
+		B0399586240B282F00B85515 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0399585240B282F00B85515 /* UIColor+Extensions.swift */; };
+		B0399589240B3D8800B85515 /* IEXCloudAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0399588240B3D8800B85515 /* IEXCloudAPI.swift */; };
+		B039958D240C257D00B85515 /* UITextView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B039958C240C257D00B85515 /* UITextView+Extensions.swift */; };
+		B0399591240C265300B85515 /* AccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0399590240C265300B85515 /* AccessoryView.swift */; };
+		B0399594240C267900B85515 /* OperationsAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0399593240C267900B85515 /* OperationsAccessoryView.swift */; };
+		B0399596240C26AE00B85515 /* PredictionsAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0399595240C26AE00B85515 /* PredictionsAccessoryView.swift */; };
+		B04C5911240C2D6B002557CF /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C5910240C2D6B002557CF /* String+Extensions.swift */; };
+		B04C5919240C3040002557CF /* RobotoMono-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B04C5914240C303F002557CF /* RobotoMono-Medium.ttf */; };
+		B04C591A240C3040002557CF /* RobotoMono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B04C5915240C303F002557CF /* RobotoMono-Bold.ttf */; };
+		B04C591B240C3040002557CF /* RobotoMono-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B04C5916240C303F002557CF /* RobotoMono-Light.ttf */; };
+		B04C591C240C3040002557CF /* RobotoMono-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B04C5917240C3040002557CF /* RobotoMono-Thin.ttf */; };
+		B04C591D240C3040002557CF /* RobotoMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B04C5918240C3040002557CF /* RobotoMono-Regular.ttf */; };
+		B04C591F240C30A2002557CF /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C591E240C30A2002557CF /* UIFont+Extensions.swift */; };
+		B04C5921240C3FE5002557CF /* PredictionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C5920240C3FE5002557CF /* PredictionCell.swift */; };
+		B04C5925240D5ABC002557CF /* EquationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C5924240D5ABC002557CF /* EquationView.swift */; };
+		B04C592C240DD0E0002557CF /* PredictionResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C592B240DD0E0002557CF /* PredictionResultCell.swift */; };
+		B04C592E240DD5AE002557CF /* PredictionsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C592D240DD5AE002557CF /* PredictionsTableCell.swift */; };
+		B04C5932240EBA2D002557CF /* Fuse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C5931240EBA2D002557CF /* Fuse.swift */; };
+		B04C5934240EBA3E002557CF /* FuseUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C5933240EBA3E002557CF /* FuseUtilities.swift */; };
+		B04C5936240EBA4D002557CF /* String+Fuse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C5935240EBA4D002557CF /* String+Fuse.swift */; };
+		B04C5944240F2826002557CF /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C5943240F2826002557CF /* Component.swift */; };
+		B04C5946240F293A002557CF /* Equation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C5945240F293A002557CF /* Equation.swift */; };
+		B04C596C2411E28A002557CF /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C596B2411E28A002557CF /* Array+Extensions.swift */; };
+		B0F44A3F24142FB2009386E9 /* EvaluationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F44A3E24142FB2009386E9 /* EvaluationView.swift */; };
+		B0F44A4124143CC8009386E9 /* Easings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F44A4024143CC8009386E9 /* Easings.swift */; };
+		B0F44A4324143FB2009386E9 /* Stat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F44A4224143FB2009386E9 /* Stat.swift */; };
+		E7FB95A7B617EC73392C1D69 /* Pods_RavenCalculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97BA7388883D00132001DD9A /* Pods_RavenCalculator.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D9AAEFB939895D3892FB53A /* Pods-RavenCalculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RavenCalculator.release.xcconfig"; path = "Target Support Files/Pods-RavenCalculator/Pods-RavenCalculator.release.xcconfig"; sourceTree = "<group>"; };
+		97BA7388883D00132001DD9A /* Pods_RavenCalculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RavenCalculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFE280C07B8155AAFBF16296 /* Pods-RavenCalculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RavenCalculator.debug.xcconfig"; path = "Target Support Files/Pods-RavenCalculator/Pods-RavenCalculator.debug.xcconfig"; sourceTree = "<group>"; };
+		B00D24A32412AF8A00EA44A6 /* RavenAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RavenAPI.swift; sourceTree = "<group>"; };
+		B00D24A52412B00600EA44A6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B00D24AD2413344C00EA44A6 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
+		B00D24AF2414286F00EA44A6 /* Evaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Evaluator.swift; sourceTree = "<group>"; };
 		B0399568240B27E300B85515 /* RavenCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RavenCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B039956B240B27E300B85515 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B039956D240B27E300B85515 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +65,33 @@
 		B0399577240B27E400B85515 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B039957A240B27E400B85515 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B039957C240B27E400B85515 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0399583240B282300B85515 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		B0399585240B282F00B85515 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		B0399588240B3D8800B85515 /* IEXCloudAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IEXCloudAPI.swift; sourceTree = "<group>"; };
+		B039958C240C257D00B85515 /* UITextView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Extensions.swift"; sourceTree = "<group>"; };
+		B0399590240C265300B85515 /* AccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessoryView.swift; sourceTree = "<group>"; };
+		B0399593240C267900B85515 /* OperationsAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsAccessoryView.swift; sourceTree = "<group>"; };
+		B0399595240C26AE00B85515 /* PredictionsAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionsAccessoryView.swift; sourceTree = "<group>"; };
+		B04C5910240C2D6B002557CF /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		B04C5914240C303F002557CF /* RobotoMono-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Medium.ttf"; sourceTree = "<group>"; };
+		B04C5915240C303F002557CF /* RobotoMono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Bold.ttf"; sourceTree = "<group>"; };
+		B04C5916240C303F002557CF /* RobotoMono-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Light.ttf"; sourceTree = "<group>"; };
+		B04C5917240C3040002557CF /* RobotoMono-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Thin.ttf"; sourceTree = "<group>"; };
+		B04C5918240C3040002557CF /* RobotoMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Regular.ttf"; sourceTree = "<group>"; };
+		B04C591E240C30A2002557CF /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
+		B04C5920240C3FE5002557CF /* PredictionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionCell.swift; sourceTree = "<group>"; };
+		B04C5924240D5ABC002557CF /* EquationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquationView.swift; sourceTree = "<group>"; };
+		B04C592B240DD0E0002557CF /* PredictionResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionResultCell.swift; sourceTree = "<group>"; };
+		B04C592D240DD5AE002557CF /* PredictionsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionsTableCell.swift; sourceTree = "<group>"; };
+		B04C5931240EBA2D002557CF /* Fuse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fuse.swift; sourceTree = "<group>"; };
+		B04C5933240EBA3E002557CF /* FuseUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuseUtilities.swift; sourceTree = "<group>"; };
+		B04C5935240EBA4D002557CF /* String+Fuse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Fuse.swift"; sourceTree = "<group>"; };
+		B04C5943240F2826002557CF /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
+		B04C5945240F293A002557CF /* Equation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equation.swift; sourceTree = "<group>"; };
+		B04C596B2411E28A002557CF /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		B0F44A3E24142FB2009386E9 /* EvaluationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationView.swift; sourceTree = "<group>"; };
+		B0F44A4024143CC8009386E9 /* Easings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Easings.swift; sourceTree = "<group>"; };
+		B0F44A4224143FB2009386E9 /* Stat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +99,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7FB95A7B617EC73392C1D69 /* Pods_RavenCalculator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		86910FCFAB895C32CB768883 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AFE280C07B8155AAFBF16296 /* Pods-RavenCalculator.debug.xcconfig */,
+				7D9AAEFB939895D3892FB53A /* Pods-RavenCalculator.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B00D24B1241429D100EA44A6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B00D24AD2413344C00EA44A6 /* Stock.swift */,
+				B0F44A4224143FB2009386E9 /* Stat.swift */,
+				B04C5943240F2826002557CF /* Component.swift */,
+				B04C5945240F293A002557CF /* Equation.swift */,
+				B00D24AF2414286F00EA44A6 /* Evaluator.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		B039955F240B27E300B85515 = {
 			isa = PBXGroup;
 			children = (
 				B039956A240B27E300B85515 /* RavenCalculator */,
 				B0399569240B27E300B85515 /* Products */,
+				86910FCFAB895C32CB768883 /* Pods */,
+				CBD03965FB2BA3DEAFFE478A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,14 +150,121 @@
 			children = (
 				B039956B240B27E300B85515 /* AppDelegate.swift */,
 				B039956D240B27E300B85515 /* SceneDelegate.swift */,
-				B039956F240B27E300B85515 /* ViewController.swift */,
+				B00D24B1241429D100EA44A6 /* Models */,
+				B039958E240C263D00B85515 /* Screens */,
+				B0399587240B3D7900B85515 /* API */,
+				B04C592F240EB781002557CF /* Utilities */,
+				B0399582240B281600B85515 /* Extensions */,
+				B04C5912240C3014002557CF /* Fonts */,
 				B0399571240B27E300B85515 /* Main.storyboard */,
 				B0399577240B27E400B85515 /* Assets.xcassets */,
 				B0399579240B27E400B85515 /* LaunchScreen.storyboard */,
 				B039957C240B27E400B85515 /* Info.plist */,
+				B00D24A52412B00600EA44A6 /* GoogleService-Info.plist */,
 				B0399574240B27E300B85515 /* RavenCalculator.xcdatamodeld */,
 			);
 			path = RavenCalculator;
+			sourceTree = "<group>";
+		};
+		B0399582240B281600B85515 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B0399583240B282300B85515 /* UIView+Extensions.swift */,
+				B0399585240B282F00B85515 /* UIColor+Extensions.swift */,
+				B039958C240C257D00B85515 /* UITextView+Extensions.swift */,
+				B04C5910240C2D6B002557CF /* String+Extensions.swift */,
+				B04C591E240C30A2002557CF /* UIFont+Extensions.swift */,
+				B0F44A4024143CC8009386E9 /* Easings.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B0399587240B3D7900B85515 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				B0399588240B3D8800B85515 /* IEXCloudAPI.swift */,
+				B00D24A32412AF8A00EA44A6 /* RavenAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		B039958E240C263D00B85515 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				B039958F240C264200B85515 /* Calculator */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		B039958F240C264200B85515 /* Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				B039956F240B27E300B85515 /* ViewController.swift */,
+				B04C5924240D5ABC002557CF /* EquationView.swift */,
+				B0F44A3E24142FB2009386E9 /* EvaluationView.swift */,
+				B04C592D240DD5AE002557CF /* PredictionsTableCell.swift */,
+				B04C592B240DD0E0002557CF /* PredictionResultCell.swift */,
+				B0399592240C265600B85515 /* Accessories */,
+			);
+			path = Calculator;
+			sourceTree = "<group>";
+		};
+		B0399592240C265600B85515 /* Accessories */ = {
+			isa = PBXGroup;
+			children = (
+				B0399590240C265300B85515 /* AccessoryView.swift */,
+				B0399593240C267900B85515 /* OperationsAccessoryView.swift */,
+				B0399595240C26AE00B85515 /* PredictionsAccessoryView.swift */,
+				B04C5920240C3FE5002557CF /* PredictionCell.swift */,
+				B04C596B2411E28A002557CF /* Array+Extensions.swift */,
+			);
+			path = Accessories;
+			sourceTree = "<group>";
+		};
+		B04C5912240C3014002557CF /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B04C5913240C3021002557CF /* RobotoMono */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		B04C5913240C3021002557CF /* RobotoMono */ = {
+			isa = PBXGroup;
+			children = (
+				B04C5915240C303F002557CF /* RobotoMono-Bold.ttf */,
+				B04C5916240C303F002557CF /* RobotoMono-Light.ttf */,
+				B04C5914240C303F002557CF /* RobotoMono-Medium.ttf */,
+				B04C5918240C3040002557CF /* RobotoMono-Regular.ttf */,
+				B04C5917240C3040002557CF /* RobotoMono-Thin.ttf */,
+			);
+			path = RobotoMono;
+			sourceTree = "<group>";
+		};
+		B04C592F240EB781002557CF /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B04C5930240EBA20002557CF /* Fuse */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		B04C5930240EBA20002557CF /* Fuse */ = {
+			isa = PBXGroup;
+			children = (
+				B04C5931240EBA2D002557CF /* Fuse.swift */,
+				B04C5933240EBA3E002557CF /* FuseUtilities.swift */,
+				B04C5935240EBA4D002557CF /* String+Fuse.swift */,
+			);
+			path = Fuse;
+			sourceTree = "<group>";
+		};
+		CBD03965FB2BA3DEAFFE478A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				97BA7388883D00132001DD9A /* Pods_RavenCalculator.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +274,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B039957F240B27E400B85515 /* Build configuration list for PBXNativeTarget "RavenCalculator" */;
 			buildPhases = (
+				58BC1129ACB9252EDCF57110 /* [CP] Check Pods Manifest.lock */,
 				B0399564240B27E300B85515 /* Sources */,
 				B0399565240B27E300B85515 /* Frameworks */,
 				B0399566240B27E300B85515 /* Resources */,
+				C73922102EA27C2F51FC3056 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,22 +328,95 @@
 			buildActionMask = 2147483647;
 			files = (
 				B039957B240B27E400B85515 /* LaunchScreen.storyboard in Resources */,
+				B04C591A240C3040002557CF /* RobotoMono-Bold.ttf in Resources */,
+				B04C5919240C3040002557CF /* RobotoMono-Medium.ttf in Resources */,
+				B00D24A62412B00600EA44A6 /* GoogleService-Info.plist in Resources */,
+				B04C591B240C3040002557CF /* RobotoMono-Light.ttf in Resources */,
 				B0399578240B27E400B85515 /* Assets.xcassets in Resources */,
+				B04C591C240C3040002557CF /* RobotoMono-Thin.ttf in Resources */,
 				B0399573240B27E300B85515 /* Main.storyboard in Resources */,
+				B04C591D240C3040002557CF /* RobotoMono-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		58BC1129ACB9252EDCF57110 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RavenCalculator-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C73922102EA27C2F51FC3056 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RavenCalculator/Pods-RavenCalculator-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RavenCalculator/Pods-RavenCalculator-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RavenCalculator/Pods-RavenCalculator-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B0399564240B27E300B85515 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0399596240C26AE00B85515 /* PredictionsAccessoryView.swift in Sources */,
+				B04C592C240DD0E0002557CF /* PredictionResultCell.swift in Sources */,
+				B00D24A42412AF8A00EA44A6 /* RavenAPI.swift in Sources */,
+				B0F44A4324143FB2009386E9 /* Stat.swift in Sources */,
 				B0399570240B27E300B85515 /* ViewController.swift in Sources */,
+				B00D24AE2413344C00EA44A6 /* Stock.swift in Sources */,
+				B0399586240B282F00B85515 /* UIColor+Extensions.swift in Sources */,
+				B0F44A3F24142FB2009386E9 /* EvaluationView.swift in Sources */,
 				B039956C240B27E300B85515 /* AppDelegate.swift in Sources */,
+				B04C5911240C2D6B002557CF /* String+Extensions.swift in Sources */,
+				B0399584240B282300B85515 /* UIView+Extensions.swift in Sources */,
 				B0399576240B27E300B85515 /* RavenCalculator.xcdatamodeld in Sources */,
+				B00D24B02414286F00EA44A6 /* Evaluator.swift in Sources */,
 				B039956E240B27E300B85515 /* SceneDelegate.swift in Sources */,
+				B04C5921240C3FE5002557CF /* PredictionCell.swift in Sources */,
+				B04C5932240EBA2D002557CF /* Fuse.swift in Sources */,
+				B04C5946240F293A002557CF /* Equation.swift in Sources */,
+				B0399589240B3D8800B85515 /* IEXCloudAPI.swift in Sources */,
+				B04C5936240EBA4D002557CF /* String+Fuse.swift in Sources */,
+				B0399591240C265300B85515 /* AccessoryView.swift in Sources */,
+				B04C5944240F2826002557CF /* Component.swift in Sources */,
+				B04C591F240C30A2002557CF /* UIFont+Extensions.swift in Sources */,
+				B04C5925240D5ABC002557CF /* EquationView.swift in Sources */,
+				B04C596C2411E28A002557CF /* Array+Extensions.swift in Sources */,
+				B04C592E240DD5AE002557CF /* PredictionsTableCell.swift in Sources */,
+				B04C5934240EBA3E002557CF /* FuseUtilities.swift in Sources */,
+				B039958D240C257D00B85515 /* UITextView+Extensions.swift in Sources */,
+				B0F44A4124143CC8009386E9 /* Easings.swift in Sources */,
+				B0399594240C267900B85515 /* OperationsAccessoryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +558,7 @@
 		};
 		B0399580240B27E400B85515 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFE280C07B8155AAFBF16296 /* Pods-RavenCalculator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -304,6 +577,7 @@
 		};
 		B0399581240B27E400B85515 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D9AAEFB939895D3892FB53A /* Pods-RavenCalculator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
