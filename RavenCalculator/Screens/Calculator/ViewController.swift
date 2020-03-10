@@ -145,7 +145,10 @@ class ViewController: UIViewController, UITextViewDelegate {
         
         //let lastIndex = IndexPath(row: 0, section: 0)
         //tableView.scrollToRow(at: lastIndex, at: .top, animated: true)
-        equation.printAll()
+        
+        let components = parse(textView.attributedText.string)
+        equationView.updateSyntax(for: components)
+        //equation.printAll()
         currentWordRange = textView.currentWordRange
 
         if currentWordRange != nil,
@@ -209,12 +212,28 @@ class ViewController: UIViewController, UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         
-        if let selectedRange = textView.selectedTextRange {
-
-            let cursorPosition = textView.offset(from: textView.beginningOfDocument, to: selectedRange.start)
-
-            print("\(cursorPosition)")
+        if text == "\n" {
+            evaluate()
+            return false
         }
+        
+//        if text.isOperation {
+//            let currentText = textView.attributedText.string
+//            if currentText.last != " " && currentText.last != nil {
+//                textView.text += " \(text)"
+//                textViewDidChange(textView)
+//                return false
+//            }
+//            return true
+//        }
+        
+        return true
+        var cursor = 0
+        if let selectedRange = textView.selectedTextRange {
+            cursor = textView.offset(from: textView.beginningOfDocument, to: selectedRange.start)
+        }
+        
+        print("\(cursor)")
         
         if text == "\n" {
             evaluate()
@@ -230,9 +249,9 @@ class ViewController: UIViewController, UITextViewDelegate {
             return true
         }
         
-        let components = equation.process(text: text)
-        
-        updateTextView(textView, withComponents: components)
+        let components = equation.process(text: text, cursor: cursor)
+        print("Components to add: \(components)")
+        updateTextView(textView, withComponents: components, cursor: cursor)
          
         return false
     }
@@ -241,7 +260,8 @@ class ViewController: UIViewController, UITextViewDelegate {
         self.tableView.reloadSections(IndexSet(integer: 1), with: .none)
     }
     
-    func updateTextView(_ textView:UITextView, withComponents components:[Component]) {
+    func updateTextView(_ textView:UITextView, withComponents components:[Component], cursor:Int) {
+        var totalLengthAdded = 0
         for component in components {
             if let lastFragment = component.lastFragment {
                 if lastFragment == ":" {
@@ -249,20 +269,23 @@ class ViewController: UIViewController, UITextViewDelegate {
                 }
                     
                 let attributedText = NSMutableAttributedString(attributedString: textView.attributedText)
-                
-                attributedText.append(NSAttributedString(string: lastFragment, attributes: component.type.styleAttributes))
-                
+            
+                attributedText.insert(NSAttributedString(string: lastFragment, attributes: component.type.styleAttributes), at: cursor)
+                totalLengthAdded += lastFragment.count
                 textView.attributedText = attributedText
             }
-            
-            UIView.setAnimationsEnabled(false)
-            textView.sizeToFit()
-            self.tableView.beginUpdates()
-            self.tableView.endUpdates()
-            UIView.setAnimationsEnabled(true)
-            
-            textViewDidChange(textView)
         }
+        
+        UIView.setAnimationsEnabled(false)
+        textView.sizeToFit()
+        self.tableView.beginUpdates()
+        self.tableView.endUpdates()
+        UIView.setAnimationsEnabled(true)
+        
+        let newPosition = textView.position(from: textView.beginningOfDocument, offset: cursor + totalLengthAdded)!
+        textView.selectedTextRange = textView.textRange(from: newPosition, to: newPosition)
+        
+        textViewDidChange(textView)
     }
     
     func evaluate() {
@@ -309,7 +332,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         guard let currentWordRange = self.currentWordRange else { return }
         if showStats {
-            
+            /*
             //extView?.text?.append("\(visibleStats[indexPath.row].key) ")
             //self.reloadTable()
             
@@ -332,13 +355,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             }
             showStats = false
             self.reloadTable()
-            
+            */
             return
         }
         let symbol = results[indexPath.row]
         
         let removedComponent = equation.removeComponent(forced: true)
-        
+        /*
         var symbolComponents = equation.process(text: "\(symbol.symbol)")
         let statComponents = equation.process(text: ":")
         symbolComponents.append(contentsOf: statComponents)
@@ -354,6 +377,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         }
         results = []
         self.reloadTable()
+        */
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -381,10 +405,12 @@ extension ViewController: OperationsAccessoryDelegate {
             return
         }
         
+        textView.insertText(" \(operation.textRepresentable) ")
+        /*
         let components = equation.process(text: operation.textRepresentable)
         
         updateTextView(textView, withComponents: components)
-        
+        */
     }
 }
 

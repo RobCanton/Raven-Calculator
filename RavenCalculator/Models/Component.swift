@@ -15,6 +15,7 @@ enum ComponentType {
     case symbol
     case stat
     case space
+    case unknown
     
     var styleAttributes:[NSAttributedString.Key: Any]? {
         switch self {
@@ -33,6 +34,11 @@ enum ComponentType {
                 NSAttributedString.Key.foregroundColor: UIColor.secondaryLabel,
                 NSAttributedString.Key.font: UIFont.monospacedSystemFont(ofSize: 18, weight: .regular)
             ]
+        case .unknown:
+            return [
+                NSAttributedString.Key.foregroundColor: UIColor.systemYellow.withAlphaComponent(0.5),
+                NSAttributedString.Key.font: UIFont.monospacedSystemFont(ofSize: 24, weight: .regular)
+            ]
         default:
             return [
                 NSAttributedString.Key.foregroundColor: UIColor.label,
@@ -47,14 +53,29 @@ struct Component {
     let type:ComponentType
     var lastFragment:String?
     
+    var length:Int {
+        return string.count
+    }
+    
     init(string:String, type:ComponentType) {
-        self.string = string
+        switch type {
+        case .symbol:
+            self.string = string.uppercased()
+        case .stat:
+            self.string = string.lowercased()
+        default:
+            self.string = string
+        }
         self.type = type
         self.lastFragment = string
     }
     
-    mutating func addString(_ str:String) {
-        self.string += str
+    mutating func addString(_ str:String, at position:Int?=nil) {
+        if position == nil {
+            self.string += str
+        } else {
+            self.string.insert(contentsOf: str, at: self.string.index(self.string.startIndex, offsetBy: position!))
+        }
         self.lastFragment = str
     }
     

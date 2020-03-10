@@ -69,5 +69,19 @@ class EquationView:UIView, UITextViewDelegate {
         textView.becomeFirstResponder()
     }
     
+    func updateSyntax(for components:[Component]) {
+        //let text = textView.attributedText.string
+        print("Components: \(components)")
+        let attributedText = NSMutableAttributedString()
+        
+        for component in components {
+            
+            attributedText.append(NSAttributedString(string: component.string, attributes: component.type.styleAttributes))
+
+        }
+        
+        textView.attributedText = attributedText
+    }
+    
 }
 

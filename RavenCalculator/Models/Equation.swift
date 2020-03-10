@@ -9,6 +9,96 @@
 import Foundation
 
 
+func parse(_ text:String) -> [Component] {
+    
+    let tokens = text.split(separator: " ")
+    var addTrailingSpace = false
+    if text.last == " " {
+        addTrailingSpace = true
+    }
+    
+    
+    
+    var components = [Component]()
+    for i in 0..<tokens.count {
+        let token = tokens[i]
+        let str = String(token)
+        if str.isOperation {
+            let component = Component(string: str, type: .operation)
+            components.append(component)
+        } else if str.isAlphanumericAndAllowables {
+            if str.contains(":") {
+                let fragments = str.split(separator: ":")
+                if fragments.count == 2 {
+                    let leadingFragment = String(fragments[0])
+                    let trailingFragment = String(fragments[1])
+                    if leadingFragment.isAlphabetic {
+                        let component = Component(string: leadingFragment, type: .symbol)
+                        components.append(component)
+                    } else {
+                        let component = Component(string: leadingFragment, type: .unknown)
+                        components.append(component)
+                    }
+                    
+                    if trailingFragment.isAlphanumeric {
+                        let component = Component(string: ":\(trailingFragment)", type: .stat)
+                        components.append(component)
+                    } else {
+                        let component = Component(string: ":\(trailingFragment)", type: .unknown)
+                        components.append(component)
+                    }
+                    
+                } else if fragments.count == 1 {
+                    if str.hasPrefix(":") {
+                        let statComponent = Component(string: ":", type: .stat)
+                        components.append(statComponent)
+                        
+                        let component = Component(string: String(fragments[0]), type: .stat)
+                        components.append(component)
+                    } else if str.hasSuffix(":") {
+                        let component = Component(string: String(fragments[0]), type: .symbol)
+                        components.append(component)
+                        
+                        let statComponent = Component(string: ":", type: .stat)
+                        components.append(statComponent)
+                        
+                    } else {
+                        let component = Component(string: str, type: .unknown)
+                        components.append(component)
+                    }
+                    
+                }
+            } else {
+                let component = Component(string: str, type: .symbol)
+                           components.append(component)
+            }
+
+        } else if str.isNumeric {
+            let component = Component(string: str, type: .digit)
+            components.append(component)
+        } else {
+            let component = Component(string: str, type: .unknown)
+            components.append(component)
+        }
+        
+        if i < tokens.count - 1 {
+            components.append(Component(string: " ", type: .space))
+        }
+    }
+    
+    if addTrailingSpace {
+        components.append(Component(string: " ", type: .space))
+    }
+    
+    var string = ""
+    for component in components {
+        string += "[\(component.string)] + "
+    }
+    print(string)
+    
+    return components
+}
+
 
 struct Equation {
     
@@ -40,17 +130,171 @@ struct Equation {
         print(string)
     }
     
-    mutating func addComponent(_ string:String, type: ComponentType) -> Component {
+    mutating func addComponent(_ string:String, type: ComponentType, at point:(Int, Int)?=nil) -> [Component] {
         
-        if let last = components.last,
-            last.type == type {
-            components[components.count-1].addString(string)
-            return components[components.count-1]
+        if let point = point {
+            
+            let activeComponent = components[point.0]
+            var nextComponent:Component?
+            if point.0 + 1 < components.count {
+                nextComponent = components[point.0 + 1]
+            }
+            
+            
+            
+            if type == .space {
+                
+                
+                
+                if point.1 >= activeComponent.length {
+                    print("Add trailing space")
+                    let component = Component(string: string, type: type)
+                    components.insert(component, at: point.0 + 1)
+                    return [component]
+                } else {
+                    print("Insert space & split")
+                    let activeString = activeComponent.string
+                    
+                    let leadingStart = activeString.startIndex
+                    let leadingEnd = activeString.index(leadingStart, offsetBy: point.1)
+                    let leadingFragment = String(activeString[leadingStart..<leadingEnd])
+                    
+                    let trailingEnd = activeString.endIndex
+                    let trailingFragment = String(activeString[leadingEnd..<trailingEnd])
+                    
+                    let leadingComponent = Component(string: leadingFragment, type: activeComponent.type)
+                    
+                    let trailingComponent = Component(string: trailingFragment, type: activeComponent.type)
+                    
+                    let component = Component(string: string, type: type)
+                    
+                    let _ = components.remove(at: point.0)
+                    
+                    components.insert(contentsOf: [
+                        leadingComponent,
+                        component,
+                        trailingComponent
+                    ], at: point.0)
+                    
+                    return [
+                        
+                        component
+                        
+                    ]
+                }
+                
+            } else if type == .operation {
+                var _components = [Component]()
+                if activeComponent.type == .space {
+                    
+                    let component = Component(string: string, type: type)
+                    let trailingComponent = Component(string: " ", type: .space)
+                    
+                    if nextComponent != nil {
+                        
+                        components.insert(contentsOf: [
+                            component,
+                            trailingComponent
+                        ], at: point.0 + 1)
+                        
+                    } else {
+                        
+                        components.append(contentsOf: [
+                            component,
+                            trailingComponent
+                        ])
+                    }
+                    
+                    _components.append(component)
+                    _components.append(trailingComponent)
+                    
+                    
+                } else {
+                    let leadingComponent = Component(string: " ", type: .space)
+                    let component = Component(string: string, type: type)
+                    let trailingComponent = Component(string: " ", type: .space)
+                    
+                    if nextComponent != nil {
+                        components.insert(contentsOf: [
+                            leadingComponent,
+                            component,
+                            trailingComponent
+                        ], at: point.0 + 1)
+                    } else {
+                        components.append(contentsOf: [
+                            leadingComponent,
+                            component,
+                            trailingComponent
+                        ])
+                    }
+                    
+                    _components.append(leadingComponent)
+                    _components.append(component)
+                    _components.append(trailingComponent)
+                }
+                
+                return _components
+            } else if type == .symbol {
+                
+                if activeComponent.type == .space {
+                    if let nextComponent = nextComponent, nextComponent.type != .space {
+                        components[point.0 + 1].addString(string, at: 0)
+                        return [components[point.0 + 1]]
+                    } else {
+                        let component = Component(string: string, type: type)
+                        components.insert(component, at: point.0 + 1)
+                        return [component]
+                    }
+                } else {
+                    components[point.0].addString(string, at: point.1)
+                    return [components[point.0]]
+                }
+                /*
+                if let nextComponent = nextComponent, activeComponent.type == .space {
+                    if nextComponent.type == .space {
+                        let component = Component(string: string, type: type)
+                        components.insert(component, at: point.0 + 1)
+                        return [component]
+                    } else {
+                        components[point.0 + 1].addString(string, at: 0)
+                        return [components[point.0 + 1]]
+                    }
+                    
+                } else {
+                    if activeComponent.type == .space {
+                        
+                        let component = Component(string: string, type: type)
+                        components.insert(component, at: point.0 + 1)
+                        return [component]
+                    } else {
+                        components[point.0].addString(string, at: point.1)
+                        return [components[point.0]]
+                    }
+                }*/
+                
+                
+                
+            }
+            
+            return []
+            
         } else {
+            print("Add space")
             let component = Component(string: string, type: type)
             components.append(component)
-            return component
+            return [component]
         }
+        
+//
+//        if let last = components.last,
+//            last.type == type {
+//            components[components.count-1].addString(string)
+//            return components[components.count-1]
+//        } else {
+//            let component = Component(string: string, type: type)
+//            components.append(component)
+//            return component
+//        }
         
     }
     
@@ -71,9 +315,46 @@ struct Equation {
         }
     }
     
+    func componentPoint(for index:Int) -> (Int, Int)? {
+        var totalLength = 0
+        for i in 0..<components.count {
+            let component = components[i]
+            let prevLength = totalLength
+            totalLength += component.length
+            
+            if totalLength >= index {
+                
+                return (i, index - prevLength)
+            }
+        }
+        
+        return nil
+    }
     
-    mutating func process(text:String) -> [Component] {
+    mutating func process(text:String, cursor:Int) -> [Component] {
+        
+        
+        let activeComponentPoint = componentPoint(for: cursor)
+
         var addedComponents = [Component]()
+        
+        if text == " " {
+            let component = addComponent(text, type: .space, at: activeComponentPoint)
+            addedComponents.append(contentsOf: component)
+        } else if text.isAlphabetic {
+            
+            
+            let component = addComponent(text, type: .symbol, at: activeComponentPoint)
+            addedComponents.append(contentsOf: component)
+            
+        } else if text.isOperation {
+            let component = addComponent(text, type: .operation, at: activeComponentPoint)
+            addedComponents.append(contentsOf: component)
+            
+        }
+        
+        /*
+        
         if text == " " {
             
             let space = addComponent(text, type: .space)
@@ -122,7 +403,7 @@ struct Equation {
                 addedComponents.append(digit)
             }
         }
-        
+        */
         return addedComponents
     }
 }

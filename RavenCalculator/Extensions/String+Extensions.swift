@@ -25,6 +25,10 @@ extension String {
         return !isEmpty && range(of: "[^a-zA-Z0-9.]", options: .regularExpression) == nil
     }
     
+    var isAlphanumericAndAllowables:Bool {
+        return !isEmpty && range(of: "[^a-zA-Z0-9.:#]", options: .regularExpression) == nil
+    }
+    
     var isAlphabetic: Bool {
         return !isEmpty && range(of: "[^a-zA-Z.]", options: .regularExpression) == nil
     }
@@ -34,7 +38,7 @@ extension String {
     }
     
     var isOperation: Bool {
-        var characterSet = CharacterSet(charactersIn: "*/+-")
+        var characterSet = CharacterSet(charactersIn: "*/+-()")
         characterSet.invert()
         return self.rangeOfCharacter(from: characterSet) == nil
     }
