@@ -126,8 +126,8 @@
             filePath = "RavenCalculator/Models/Equation.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "347"
-            endingLineNumber = "347"
+            startingLineNumber = "461"
+            endingLineNumber = "461"
             landmarkName = "process(text:cursor:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -142,8 +142,8 @@
             filePath = "RavenCalculator/Models/Equation.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "325"
-            endingLineNumber = "325"
+            startingLineNumber = "439"
+            endingLineNumber = "439"
             landmarkName = "componentPoint(for:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -158,8 +158,8 @@
             filePath = "RavenCalculator/Models/Equation.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "324"
-            endingLineNumber = "324"
+            startingLineNumber = "438"
+            endingLineNumber = "438"
             landmarkName = "componentPoint(for:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -174,8 +174,8 @@
             filePath = "RavenCalculator/Models/Equation.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "329"
-            endingLineNumber = "329"
+            startingLineNumber = "443"
+            endingLineNumber = "443"
             landmarkName = "componentPoint(for:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -190,8 +190,8 @@
             filePath = "RavenCalculator/Models/Equation.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "327"
-            endingLineNumber = "327"
+            startingLineNumber = "441"
+            endingLineNumber = "441"
             landmarkName = "componentPoint(for:)"
             landmarkType = "7">
          </BreakpointContent>

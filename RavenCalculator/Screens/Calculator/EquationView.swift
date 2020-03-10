@@ -71,7 +71,7 @@ class EquationView:UIView, UITextViewDelegate {
     
     func updateSyntax(for components:[Component]) {
         //let text = textView.attributedText.string
-        print("Components: \(components)")
+//        /print("Components: \(components)")
         let attributedText = NSMutableAttributedString()
         
         for component in components {

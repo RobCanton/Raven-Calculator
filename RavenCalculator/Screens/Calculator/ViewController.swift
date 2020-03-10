@@ -146,7 +146,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         //let lastIndex = IndexPath(row: 0, section: 0)
         //tableView.scrollToRow(at: lastIndex, at: .top, animated: true)
         
-        let components = parse(textView.attributedText.string)
+        let components = parseComponents(from: textView.attributedText.string)
         equationView.updateSyntax(for: components)
         //equation.printAll()
         currentWordRange = textView.currentWordRange
@@ -405,12 +405,27 @@ extension ViewController: OperationsAccessoryDelegate {
             return
         }
         
-        textView.insertText(" \(operation.textRepresentable) ")
-        /*
-        let components = equation.process(text: operation.textRepresentable)
         
-        updateTextView(textView, withComponents: components)
-        */
+        var cursor = 0
+        if let selectedRange = textView.selectedTextRange {
+            cursor = textView.offset(from: textView.beginningOfDocument, to: selectedRange.start)
+        }
+        
+        let text = textView.attributedText.string
+        var str:String
+        if text.count > 0, let char = text.char(at: cursor-1) {
+            let charStr = String(char)
+            if charStr == " " {
+                str = "\(operation.textRepresentable) "
+            } else {
+                str = " \(operation.textRepresentable) "
+            }
+        } else {
+            str = "\(operation.textRepresentable) "
+        }
+        
+        textView.insertText(str)
+        textViewDidChange(textView)
     }
 }
 

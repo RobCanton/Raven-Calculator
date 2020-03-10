@@ -8,6 +8,118 @@
 
 import Foundation
 
+func parseComponents(from text:String) -> [Component] {
+    var components = [Component]()
+    
+    
+    
+    var addTrailingSpace = false
+    if text.last == " " {
+        addTrailingSpace = true
+    }
+    
+    
+    let delimiterSet = ["*", "/", "+", "-", "(", ")", " "]//CharacterSet(charactersIn: "*/+-() ")
+    let tokens = text.split {
+        delimiterSet.contains(String($0))
+    }
+    
+    var delimiters = [(String, Int)]()
+    
+    var count = 0
+    text.forEach { c in
+        //print("c: \(c)")
+        if delimiterSet.contains(String(c)) {
+            print("contains delim: \(c)")
+            delimiters.append((String(c), count))
+        }
+        
+        count += 1
+    }
+//    text.unicodeScalars.forEach({ scalar in
+//
+//        if delimiterSet.contains(scalar) {
+//            delimiters.append("\(scalar)")
+//        }
+//    })
+    
+    
+    var cap = 0
+    for i in 0..<tokens.count {
+        let token = String(tokens[i])
+        
+       
+        let component = Component(string: String(token), type: .symbol)
+        components.append(component)
+        cap += token.count
+        
+        //print("cap: \(cap) | \(deli)")
+        if delimiters.count > 0 {
+            
+            var delimiter = delimiters.first
+            
+            
+            while (delimiter?.1 == cap) {
+                let _ = delimiters.removeFirst()
+                let operation = Component(string: delimiter!.0, type: .operation)
+                components.append(operation)
+                cap += delimiter!.0.count
+                delimiter = delimiters.first
+            }
+//            if delimiter.1 == cap {
+//                let _ = delimiters.removeFirst()
+//                let operation = Component(string: delimiter.0, type: .operation)
+//                components.append(operation)
+//                cap += delimiter.0.count
+//
+//            }
+            //print("cap: \(cap) | \(delimiter.1)")
+        }
+        
+//        if i < delimiters.count {
+//
+//            print("delim: \(delimiters[i])")
+//            let operation = Component(string: delimiters[i].0, type: .operation)
+//            components.append(operation)
+//            cap +=
+//        }
+        /*
+        let spaceSeparatedTokens = token.split(separator: " ")
+        for tokenFrag in spaceSeparatedTokens {
+            let component = Component(string: String(tokenFrag), type: .symbol)
+            components.append(component)
+            
+            let spaceComponent = Component(string: " ", type: .space)
+            components.append(spaceComponent)
+        }
+        */
+//        if i < operations.count {
+//            let operation = Component(string: operations[i], type: .operation)
+//            components.append(operation)
+//        }
+    }
+    
+//    let diff = delimiters.count - tokens.count
+//    if diff > 0 {
+//        for i in delimiters.count-diff..<delimiters.count {
+//            let operation = Component(string: delimiters[i], type: .operation)
+//            components.append(operation)
+//        }
+//    }
+    //print("Operations: \(operations)")
+    
+//    if text.last == " " {
+//        components.append(Component(string: " ", type: .space))
+//    }
+    
+    var string = ""
+    for component in components {
+        string += "[\(component.string)] + "
+    }
+    print(string)
+    
+    return components
+}
 
 func parse(_ text:String) -> [Component] {
     
