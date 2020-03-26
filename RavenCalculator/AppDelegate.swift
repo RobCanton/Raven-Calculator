@@ -9,6 +9,11 @@
 import UIKit
 import CoreData
 import Firebase
+import GoogleSignIn
+
+var database:DatabaseReference {
+    return Database.database().reference().child("app")
+}
 
 var functions:Functions {
     return Functions.functions()
@@ -22,6 +27,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
+        
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
+        
+        
         // Override point for customization after application launch.
         
 //        for family in UIFont.familyNames.sorted() {
@@ -31,6 +41,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         return true
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return GIDSignIn.sharedInstance().handle(url)
     }
 
     // MARK: UISceneSession Lifecycle
@@ -94,3 +108,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+
+extension AppDelegate: GIDSignInDelegate {
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
+      // ...
+      if let error = error {
+        print("GIDSignIn didSignInFor user withError: \(error.localizedDescription)")
+        return
+      }
+
+      guard let authentication = user.authentication else { return }
+      let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                        accessToken: authentication.accessToken)
+      Auth.auth().signIn(with: credential) { (authResult, error) in
+        if let error = error {
+          print("GIDSignIn didSignInFor: \(error.localizedDescription)")
+          return
+        }
+        print("User signed in!")
+      }
+    }
+
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        // Perform any operations when the user disconnects from app here.
+        print("GIDSignIn didDisconnectWithError: \(error.localizedDescription)")
+    }
+}

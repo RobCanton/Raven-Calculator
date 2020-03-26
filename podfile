@@ -14,4 +14,5 @@ target 'RavenCalculator' do
   pod 'Firebase/Functions'
   pod 'GradientLoadingBar', '~> 2.0'
   pod 'GradientProgressBar', '~> 2.0'
+  pod 'GoogleSignIn'
 end

@@ -39,7 +39,7 @@ class EquationView:UIView, UITextViewDelegate {
         //self.isUserInteractionEnabled = false
         //backgroundColor = UIColor.named(.background)
 //        /contentView.backgroundColor = UIColor.named(.background)
-        self.backgroundColor = UIColor.tertiarySystemGroupedBackground
+        self.backgroundColor = UIColor.secondarySystemGroupedBackground
         textView = UITextView()
         textView.isSelectable = true
         textView.backgroundColor = UIColor.clear
@@ -52,7 +52,6 @@ class EquationView:UIView, UITextViewDelegate {
         textView.font = UIFont.monospacedSystemFont(ofSize: 22, weight: .regular)//.systemFont(ofSize: 24, weight: .regular)
         textView.autocapitalizationType = .allCharacters
         textView.tintColor = UIColor.label
-        textView.keyboardAppearance = .dark
         textView.returnKeyType = .done
         
         divider = UIView()

@@ -15,10 +15,6 @@ protocol EvaluatorDelegate: class {
     func evaluatorDidFail(withError error:Error)
 }
 
-struct Evaluation {
-    let result:Double
-}
-
 class Evaluator {
     let equation:Equation
     
@@ -50,16 +46,125 @@ class Evaluator {
         
         var vars = [Expression.Symbol: Expression.SymbolEvaluator]()
         
+        let statComponents = equation.components(ofType: .stat)
+        
+        var statTypes = [Stat: Bool]()
+        
+        for component in statComponents {
+            let statStrClean = component.string.replacingOccurrences(of: ":", with: "").lowercased()
+            if let stat = Stat(rawValue: statStrClean) {
+                statTypes[stat] = true
+            }
+        }
+        
+        var unavailableStats = [Stat]()
+        var variableValues = [String:Double]()
         
         for stock in equationData.stocks {
-//            for stat in Stat.all {
-//                vars[.variable("\(stock.symbol)_\(stat.rawValue)")] = { _ in stock.quote.volume }
-//            }
-            vars[.variable("\(stock.symbol)_price")] = { _ in stock.quote.price }
-            vars[.variable("\(stock.symbol)_peratio")] = { _ in stock.quote.peRatio }
-            vars[.variable("\(stock.symbol)_change")] = { _ in stock.quote.change }
-            vars[.variable("\(stock.symbol)_volume")] = { _ in stock.quote.volume }
+            for (type, _) in statTypes {
+                let key = "\(stock.symbol)_\(type.rawValue)"
+                switch type {
+                case .volume:
+                    if stock.quote.volume == nil {
+                        unavailableStats.append(type)
+                    }
+                    variableValues[key] = stock.quote.volume
+                case .change:
+                    if stock.quote.change == nil {
+                        unavailableStats.append(type)
+                    }
+                    variableValues[key] = stock.quote.change
+                case .changePercent:
+                    if stock.quote.changePercent == nil {
+                        unavailableStats.append(type)
+                    }
+                    variableValues[key] = stock.quote.changePercent
+                case .open:
+                    if stock.quote.open == nil {
+                        unavailableStats.append(type)
+                    }
+                    variableValues[key] = stock.quote.open
+                case .close:
+                    if stock.quote.close == nil {
+                        unavailableStats.append(type)
+                    }
+                    variableValues[key] = stock.quote.close
+                case .previousClose:
+                    if stock.quote.previousClose == nil {
+                        unavailableStats.append(type)
+                    }
+                    variableValues[key] = stock.quote.previousClose
+                case .previousVolume:
+                    if stock.quote.previousVolume == nil {
+                        unavailableStats.append(type)
+                    }
+                    variableValues[key] = stock.quote.previousVolume
+                case .high:
+                    if stock.quote.high == nil {
+                        unavailableStats.append(type)
+                    }
+                    variableValues[key] = stock.quote.high
+                case .low:
+                    if stock.quote.low == nil {
+                        unavailableStats.append(type)
+                    }
+                    variableValues[key] = stock.quote.low
+                case .marketCap:
+                    if stock.quote.marketCap == nil {
+                        unavailableStats.append(type)
+                    }
+                    variableValues[key] = stock.quote.marketCap
+                case .avgTotalVolume:
+                    if stock.quote.avgTotalVolume == nil {
+                        unavailableStats.append(type)
+                    }
+                    variableValues[key] = stock.quote.avgTotalVolume
+                case .week52High:
+                    if stock.quote.week52High == nil {
+                        unavailableStats.append(type)
+                    }
+                    variableValues[key] = stock.quote.week52High
+                case .week52Low:
+                    if stock.quote.week52Low == nil {
+                        unavailableStats.append(type)
+                    }
+                    variableValues[key] = stock.quote.week52Low
+                case .ytdChange:
+                    if stock.quote.ytdChange == nil {
+                        unavailableStats.append(type)
+                    }
+                    variableValues[key] = stock.quote.ytdChange
+                case .peRatio:
+                    if stock.quote.peRatio == nil {
+                        unavailableStats.append(type)
+                    }
+                    variableValues[key] = stock.quote.peRatio
+                default:
+                    if stock.quote.price == nil {
+                        unavailableStats.append(type)
+                    }
+                    variableValues[key] = stock.quote.price
+                }
+            }
         }
+        
+        print("unavailableStats: \(unavailableStats)")
+        
+        if unavailableStats.count > 0 {
+            let error = NSError(domain: "", code: 0, userInfo: [:])
+            self.delegate?.evaluatorDidFail(withError: error as Error)
+            return
+        }
+        
+        for stock in equationData.stocks {
+            for (type, _) in statTypes {
+                let key = "\(stock.symbol)_\(type.rawValue)"
+                vars[.variable("\(stock.symbol)_\(type.rawValue)")] = { _ in
+                    return variableValues[key] ?? 0
+                }
+            }
+        }
+        
         
         let expressionString = equation.stringRepresentation.replacingOccurrences(of: ":", with: "_")
         

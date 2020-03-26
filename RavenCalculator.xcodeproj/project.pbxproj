@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		B00D24A42412AF8A00EA44A6 /* RavenAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00D24A32412AF8A00EA44A6 /* RavenAPI.swift */; };
-		B00D24A62412B00600EA44A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B00D24A52412B00600EA44A6 /* GoogleService-Info.plist */; };
 		B00D24AE2413344C00EA44A6 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00D24AD2413344C00EA44A6 /* Stock.swift */; };
 		B00D24B02414286F00EA44A6 /* Evaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00D24AF2414286F00EA44A6 /* Evaluator.swift */; };
+		B015C595241B231E007E3699 /* ItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B015C594241B231E007E3699 /* ItemManager.swift */; };
 		B039956C240B27E300B85515 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B039956B240B27E300B85515 /* AppDelegate.swift */; };
 		B039956E240B27E300B85515 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B039956D240B27E300B85515 /* SceneDelegate.swift */; };
-		B0399570240B27E300B85515 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B039956F240B27E300B85515 /* ViewController.swift */; };
+		B0399570240B27E300B85515 /* EquationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B039956F240B27E300B85515 /* EquationViewController.swift */; };
 		B0399573240B27E300B85515 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0399571240B27E300B85515 /* Main.storyboard */; };
 		B0399576240B27E300B85515 /* RavenCalculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0399574240B27E300B85515 /* RavenCalculator.xcdatamodeld */; };
 		B0399578240B27E400B85515 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0399577240B27E400B85515 /* Assets.xcassets */; };
@@ -42,6 +42,16 @@
 		B04C5944240F2826002557CF /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C5943240F2826002557CF /* Component.swift */; };
 		B04C5946240F293A002557CF /* Equation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C5945240F293A002557CF /* Equation.swift */; };
 		B04C596C2411E28A002557CF /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04C596B2411E28A002557CF /* Array+Extensions.swift */; };
+		B0620616241C02EE00CFE954 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0620615241C02EE00CFE954 /* Item.swift */; };
+		B0620618241C037A00CFE954 /* Evaluation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0620617241C037A00CFE954 /* Evaluation.swift */; };
+		B062061A241C35FD00CFE954 /* TagsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0620619241C35FD00CFE954 /* TagsTableViewCell.swift */; };
+		B062061C241C47F600CFE954 /* TagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B062061B241C47F600CFE954 /* TagsView.swift */; };
+		B06E2B852419DEAE009637EC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E2B842419DEAE009637EC /* HomeViewController.swift */; };
+		B06E2B87241A938F009637EC /* EquationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06E2B86241A938F009637EC /* EquationTableViewCell.swift */; };
+		B0A65C18241DDD6A00B8DA44 /* EmptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A65C17241DDD6A00B8DA44 /* EmptyTableViewCell.swift */; };
+		B0A65C1C241EAF6D00B8DA44 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A65C1B241EAF6D00B8DA44 /* SignInViewController.swift */; };
+		B0A65C1E24202ABF00B8DA44 /* WatchLevelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A65C1D24202ABF00B8DA44 /* WatchLevelTableViewCell.swift */; };
+		B0A65C9E2421ECD800B8DA44 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B0A65C9D2421ECD800B8DA44 /* GoogleService-Info.plist */; };
 		B0BA24A92415AB9300E33C4D /* RegexParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BA24A82415AB9300E33C4D /* RegexParser.swift */; };
 		B0F44A3F24142FB2009386E9 /* EvaluationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F44A3E24142FB2009386E9 /* EvaluationView.swift */; };
 		B0F44A4124143CC8009386E9 /* Easings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F44A4024143CC8009386E9 /* Easings.swift */; };
@@ -54,13 +64,13 @@
 		97BA7388883D00132001DD9A /* Pods_RavenCalculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RavenCalculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFE280C07B8155AAFBF16296 /* Pods-RavenCalculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RavenCalculator.debug.xcconfig"; path = "Target Support Files/Pods-RavenCalculator/Pods-RavenCalculator.debug.xcconfig"; sourceTree = "<group>"; };
 		B00D24A32412AF8A00EA44A6 /* RavenAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RavenAPI.swift; sourceTree = "<group>"; };
-		B00D24A52412B00600EA44A6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B00D24AD2413344C00EA44A6 /* Stock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		B00D24AF2414286F00EA44A6 /* Evaluator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Evaluator.swift; sourceTree = "<group>"; };
+		B015C594241B231E007E3699 /* ItemManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemManager.swift; sourceTree = "<group>"; };
 		B0399568240B27E300B85515 /* RavenCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RavenCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B039956B240B27E300B85515 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B039956D240B27E300B85515 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B039956F240B27E300B85515 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B039956F240B27E300B85515 /* EquationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquationViewController.swift; sourceTree = "<group>"; };
 		B0399572240B27E300B85515 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B0399575240B27E300B85515 /* RavenCalculator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RavenCalculator.xcdatamodel; sourceTree = "<group>"; };
 		B0399577240B27E400B85515 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -90,6 +100,17 @@
 		B04C5943240F2826002557CF /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		B04C5945240F293A002557CF /* Equation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equation.swift; sourceTree = "<group>"; };
 		B04C596B2411E28A002557CF /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		B0620615241C02EE00CFE954 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		B0620617241C037A00CFE954 /* Evaluation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Evaluation.swift; sourceTree = "<group>"; };
+		B0620619241C35FD00CFE954 /* TagsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TagsTableViewCell.swift; path = RavenCalculator/Screens/Calculator/TagsTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		B062061B241C47F600CFE954 /* TagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsView.swift; sourceTree = "<group>"; };
+		B06E2B842419DEAE009637EC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B06E2B86241A938F009637EC /* EquationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquationTableViewCell.swift; sourceTree = "<group>"; };
+		B0A65C17241DDD6A00B8DA44 /* EmptyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTableViewCell.swift; sourceTree = "<group>"; };
+		B0A65C19241EA85800B8DA44 /* RavenCalculator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RavenCalculator.entitlements; sourceTree = "<group>"; };
+		B0A65C1B241EAF6D00B8DA44 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		B0A65C1D24202ABF00B8DA44 /* WatchLevelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchLevelTableViewCell.swift; sourceTree = "<group>"; };
+		B0A65C9D2421ECD800B8DA44 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B0BA24A82415AB9300E33C4D /* RegexParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexParser.swift; sourceTree = "<group>"; };
 		B0F44A3E24142FB2009386E9 /* EvaluationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationView.swift; sourceTree = "<group>"; };
 		B0F44A4024143CC8009386E9 /* Easings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Easings.swift; sourceTree = "<group>"; };
@@ -123,10 +144,20 @@
 				B00D24AD2413344C00EA44A6 /* Stock.swift */,
 				B0F44A4224143FB2009386E9 /* Stat.swift */,
 				B04C5943240F2826002557CF /* Component.swift */,
+				B0620615241C02EE00CFE954 /* Item.swift */,
 				B04C5945240F293A002557CF /* Equation.swift */,
+				B0620617241C037A00CFE954 /* Evaluation.swift */,
 				B00D24AF2414286F00EA44A6 /* Evaluator.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		B015C596241B2320007E3699 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				B015C594241B231E007E3699 /* ItemManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		B039955F240B27E300B85515 = {
@@ -150,19 +181,19 @@
 		B039956A240B27E300B85515 /* RavenCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				B0A65C19241EA85800B8DA44 /* RavenCalculator.entitlements */,
 				B039956B240B27E300B85515 /* AppDelegate.swift */,
 				B039956D240B27E300B85515 /* SceneDelegate.swift */,
 				B00D24B1241429D100EA44A6 /* Models */,
+				B015C596241B2320007E3699 /* Managers */,
 				B039958E240C263D00B85515 /* Screens */,
 				B0399587240B3D7900B85515 /* API */,
 				B04C592F240EB781002557CF /* Utilities */,
 				B0399582240B281600B85515 /* Extensions */,
 				B04C5912240C3014002557CF /* Fonts */,
-				B0399571240B27E300B85515 /* Main.storyboard */,
 				B0399577240B27E400B85515 /* Assets.xcassets */,
-				B0399579240B27E400B85515 /* LaunchScreen.storyboard */,
 				B039957C240B27E400B85515 /* Info.plist */,
-				B00D24A52412B00600EA44A6 /* GoogleService-Info.plist */,
+				B0A65C9D2421ECD800B8DA44 /* GoogleService-Info.plist */,
 				B0399574240B27E300B85515 /* RavenCalculator.xcdatamodeld */,
 			);
 			path = RavenCalculator;
@@ -193,6 +224,10 @@
 		B039958E240C263D00B85515 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				B0399571240B27E300B85515 /* Main.storyboard */,
+				B0399579240B27E400B85515 /* LaunchScreen.storyboard */,
+				B0A65C1A241EAF5A00B8DA44 /* Auth */,
+				B041014B2419DE4E00CE1584 /* Home */,
 				B039958F240C264200B85515 /* Calculator */,
 			);
 			path = Screens;
@@ -201,11 +236,14 @@
 		B039958F240C264200B85515 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				B039956F240B27E300B85515 /* ViewController.swift */,
+				B039956F240B27E300B85515 /* EquationViewController.swift */,
 				B04C5924240D5ABC002557CF /* EquationView.swift */,
 				B0F44A3E24142FB2009386E9 /* EvaluationView.swift */,
 				B04C592D240DD5AE002557CF /* PredictionsTableCell.swift */,
 				B04C592B240DD0E0002557CF /* PredictionResultCell.swift */,
+				B0620619241C35FD00CFE954 /* TagsTableViewCell.swift */,
+				B0A65C17241DDD6A00B8DA44 /* EmptyTableViewCell.swift */,
+				B0A65C1D24202ABF00B8DA44 /* WatchLevelTableViewCell.swift */,
 				B0399592240C265600B85515 /* Accessories */,
 			);
 			path = Calculator;
@@ -221,6 +259,16 @@
 				B04C596B2411E28A002557CF /* Array+Extensions.swift */,
 			);
 			path = Accessories;
+			sourceTree = "<group>";
+		};
+		B041014B2419DE4E00CE1584 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B06E2B842419DEAE009637EC /* HomeViewController.swift */,
+				B06E2B86241A938F009637EC /* EquationTableViewCell.swift */,
+				B062061B241C47F600CFE954 /* TagsView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		B04C5912240C3014002557CF /* Fonts */ = {
@@ -262,6 +310,14 @@
 			path = Fuse;
 			sourceTree = "<group>";
 		};
+		B0A65C1A241EAF5A00B8DA44 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				B0A65C1B241EAF6D00B8DA44 /* SignInViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		CBD03965FB2BA3DEAFFE478A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +338,7 @@
 				B0399565240B27E300B85515 /* Frameworks */,
 				B0399566240B27E300B85515 /* Resources */,
 				C73922102EA27C2F51FC3056 /* [CP] Embed Pods Frameworks */,
+				81FADB8DC48F78731E4AE737 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -333,12 +390,12 @@
 				B039957B240B27E400B85515 /* LaunchScreen.storyboard in Resources */,
 				B04C591A240C3040002557CF /* RobotoMono-Bold.ttf in Resources */,
 				B04C5919240C3040002557CF /* RobotoMono-Medium.ttf in Resources */,
-				B00D24A62412B00600EA44A6 /* GoogleService-Info.plist in Resources */,
 				B04C591B240C3040002557CF /* RobotoMono-Light.ttf in Resources */,
 				B0399578240B27E400B85515 /* Assets.xcassets in Resources */,
 				B04C591C240C3040002557CF /* RobotoMono-Thin.ttf in Resources */,
 				B0399573240B27E300B85515 /* Main.storyboard in Resources */,
 				B04C591D240C3040002557CF /* RobotoMono-Regular.ttf in Resources */,
+				B0A65C9E2421ECD800B8DA44 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +424,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		81FADB8DC48F78731E4AE737 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RavenCalculator/Pods-RavenCalculator-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RavenCalculator/Pods-RavenCalculator-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RavenCalculator/Pods-RavenCalculator-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C73922102EA27C2F51FC3056 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -393,10 +467,15 @@
 			files = (
 				B0399596240C26AE00B85515 /* PredictionsAccessoryView.swift in Sources */,
 				B04C592C240DD0E0002557CF /* PredictionResultCell.swift in Sources */,
+				B0620616241C02EE00CFE954 /* Item.swift in Sources */,
+				B06E2B852419DEAE009637EC /* HomeViewController.swift in Sources */,
 				B00D24A42412AF8A00EA44A6 /* RavenAPI.swift in Sources */,
+				B0A65C1C241EAF6D00B8DA44 /* SignInViewController.swift in Sources */,
 				B0F44A4324143FB2009386E9 /* Stat.swift in Sources */,
-				B0399570240B27E300B85515 /* ViewController.swift in Sources */,
+				B0399570240B27E300B85515 /* EquationViewController.swift in Sources */,
+				B015C595241B231E007E3699 /* ItemManager.swift in Sources */,
 				B00D24AE2413344C00EA44A6 /* Stock.swift in Sources */,
+				B0620618241C037A00CFE954 /* Evaluation.swift in Sources */,
 				B0399586240B282F00B85515 /* UIColor+Extensions.swift in Sources */,
 				B0F44A3F24142FB2009386E9 /* EvaluationView.swift in Sources */,
 				B039956C240B27E300B85515 /* AppDelegate.swift in Sources */,
@@ -404,6 +483,7 @@
 				B0399584240B282300B85515 /* UIView+Extensions.swift in Sources */,
 				B0399576240B27E300B85515 /* RavenCalculator.xcdatamodeld in Sources */,
 				B00D24B02414286F00EA44A6 /* Evaluator.swift in Sources */,
+				B0A65C1E24202ABF00B8DA44 /* WatchLevelTableViewCell.swift in Sources */,
 				B039956E240B27E300B85515 /* SceneDelegate.swift in Sources */,
 				B04C5921240C3FE5002557CF /* PredictionCell.swift in Sources */,
 				B04C5932240EBA2D002557CF /* Fuse.swift in Sources */,
@@ -418,9 +498,13 @@
 				B04C596C2411E28A002557CF /* Array+Extensions.swift in Sources */,
 				B04C592E240DD5AE002557CF /* PredictionsTableCell.swift in Sources */,
 				B04C5934240EBA3E002557CF /* FuseUtilities.swift in Sources */,
+				B062061C241C47F600CFE954 /* TagsView.swift in Sources */,
 				B039958D240C257D00B85515 /* UITextView+Extensions.swift in Sources */,
+				B062061A241C35FD00CFE954 /* TagsTableViewCell.swift in Sources */,
 				B0F44A4124143CC8009386E9 /* Easings.swift in Sources */,
+				B0A65C18241DDD6A00B8DA44 /* EmptyTableViewCell.swift in Sources */,
 				B0399594240C267900B85515 /* OperationsAccessoryView.swift in Sources */,
+				B06E2B87241A938F009637EC /* EquationTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,6 +649,7 @@
 			baseConfigurationReference = AFE280C07B8155AAFBF16296 /* Pods-RavenCalculator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RavenCalculator/RavenCalculator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6BES3VUFCX;
 				INFOPLIST_FILE = RavenCalculator/Info.plist;
@@ -584,6 +669,7 @@
 			baseConfigurationReference = 7D9AAEFB939895D3892FB53A /* Pods-RavenCalculator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RavenCalculator/RavenCalculator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6BES3VUFCX;
 				INFOPLIST_FILE = RavenCalculator/Info.plist;

@@ -37,12 +37,42 @@ enum ComponentType {
         case .unknown:
             return [
                 NSAttributedString.Key.foregroundColor: UIColor.systemYellow.withAlphaComponent(0.5),
-                NSAttributedString.Key.font: UIFont.monospacedSystemFont(ofSize: 24, weight: .regular)
+                NSAttributedString.Key.font: UIFont.monospacedSystemFont(ofSize: 18, weight: .regular)
             ]
         default:
             return [
                 NSAttributedString.Key.foregroundColor: UIColor.label,
                 NSAttributedString.Key.font: UIFont.monospacedSystemFont(ofSize: 24, weight: .regular)
+            ]
+        }
+    }
+    
+    var lightStyleAttributes:[NSAttributedString.Key: Any]? {
+        switch self {
+        case .operation:
+            return [
+                NSAttributedString.Key.foregroundColor: UIColor.secondaryLabel,
+                NSAttributedString.Key.font: UIFont.monospacedSystemFont(ofSize: 20, weight: .light)
+            ]
+        case .symbol:
+            return [
+                NSAttributedString.Key.foregroundColor: UIColor.label,
+                NSAttributedString.Key.font: UIFont.monospacedSystemFont(ofSize: 20, weight: .light)
+            ]
+        case .stat:
+            return [
+                NSAttributedString.Key.foregroundColor: UIColor.secondaryLabel,
+                NSAttributedString.Key.font: UIFont.monospacedSystemFont(ofSize: 14, weight: .light)
+            ]
+        case .unknown:
+            return [
+                NSAttributedString.Key.foregroundColor: UIColor.systemYellow.withAlphaComponent(0.5),
+                NSAttributedString.Key.font: UIFont.monospacedSystemFont(ofSize: 14, weight: .light)
+            ]
+        default:
+            return [
+                NSAttributedString.Key.foregroundColor: UIColor.label,
+                NSAttributedString.Key.font: UIFont.monospacedSystemFont(ofSize: 20, weight: .light)
             ]
         }
     }

@@ -7,17 +7,22 @@
 //
 
 import UIKit
+import Firebase
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
+    var authListener:AuthStateDidChangeListenerHandle?
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        fetchRequirements {
+            self.listenToAuth()
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -49,6 +54,77 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+    }
+    
+    func fetchRequirements(completion: @escaping()->()) {
+        return completion()
+    }
+
+    func listenToAuth() {
+        if let listener = authListener {
+            Auth.auth().removeStateDidChangeListener(listener)
+        }
+        
+        authListener = Auth.auth().addStateDidChangeListener { (auth, user) in
+            
+            if let user = user {
+                user.getIDTokenForcingRefresh(true, completion: { token, error in
+                    if token != nil, error == nil {
+                        //NetworkManager.shared.token = token
+                        self.openHomeScreen()
+                    } else {
+                        do {
+                            try Auth.auth().signOut()
+                        } catch {}
+                        self.openLoginScreen()
+                    }
+                })
+            } else {
+                
+                guard let rootVC = self.window?.rootViewController else { return }
+                
+                if rootVC.children.count == 0 {
+                    self.openLoginScreen()
+                } else {
+                    self.window?.rootViewController?.dismiss(animated: false, completion: {
+                        self.openLoginScreen()
+                    })
+                }
+                
+            }
+        }
+        
+    }
+    
+    func openLoginScreen() {
+        
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        
+        let controller = main.instantiateViewController(identifier: "authVC") as! SignInViewController
+        self.window?.rootViewController = controller
+        self.window?.makeKeyAndVisible()
+    }
+    
+    func openHomeScreen() {
+        
+        ItemManager.shared.configure()
+        RavenAPI.shared.enablePresenceDetection()
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let controller = storyboard.instantiateViewController(withIdentifier: "mainVC")
+        self.window?.rootViewController = controller
+        self.window?.makeKeyAndVisible()
+        
+        InstanceID.instanceID().instanceID { (result, error) in
+            if let error = error {
+                print("Error fetching remote instance ID: \(error)")
+            } else if let result = result {
+                print("Remote instance ID token: \(result.token)")
+                //UserService.fcmToken = result.token
+            }
+        }
+        
     }
 
 

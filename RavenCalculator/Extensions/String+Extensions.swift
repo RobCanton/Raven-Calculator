@@ -29,6 +29,10 @@ extension String {
         return !isEmpty && range(of: "[^a-zA-Z0-9.:#]", options: .regularExpression) == nil
     }
     
+    var isTagEntryAllowable:Bool {
+        return !isEmpty && range(of: "[^a-zA-Z0-9]", options: .regularExpression) == nil
+    }
+    
     var isAlphabetic: Bool {
         return !isEmpty && range(of: "[^a-zA-Z.]", options: .regularExpression) == nil
     }
@@ -41,6 +45,11 @@ extension String {
         var characterSet = CharacterSet(charactersIn: "*/+-()")
         characterSet.invert()
         return self.rangeOfCharacter(from: characterSet) == nil
+    }
+    
+    var isBackspace: Bool {
+      let char = self.cString(using: String.Encoding.utf8)!
+      return strcmp(char, "\\b") == -92
     }
 }
 

@@ -25,7 +25,7 @@ class PredictionResultCell: UITableViewCell {
     }
     
     private func setup() {
-        contentView.backgroundColor = UIColor.secondarySystemGroupedBackground
+        self.backgroundColor = UIColor(hex: "1D1D1E")
         
         titleLabel = UILabel()
         titleLabel.font = .monospacedSystemFont(ofSize: 18, weight: .medium)//.systemFont(ofSize: 18.0, weight: .medium)
@@ -51,23 +51,23 @@ class PredictionResultCell: UITableViewCell {
         
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        if selected {
-            contentView.backgroundColor = UIColor.secondarySystemFill
-        } else {
-            contentView.backgroundColor = UIColor.secondarySystemGroupedBackground
-        }
-    }
-    
-    
-    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
-        super.setHighlighted(highlighted, animated: animated)
-        if highlighted {
-            contentView.backgroundColor = UIColor.secondarySystemFill
-        } else {
-            contentView.backgroundColor = UIColor.secondarySystemGroupedBackground
-            
-        }
-    }
+//    override func setSelected(_ selected: Bool, animated: Bool) {
+//        super.setSelected(selected, animated: animated)
+//        if selected {
+//            contentView.backgroundColor = UIColor.secondarySystemFill
+//        } else {
+//            contentView.backgroundColor = UIColor.secondarySystemGroupedBackground
+//        }
+//    }
+//
+//
+//    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+//        super.setHighlighted(highlighted, animated: animated)
+//        if highlighted {
+//            contentView.backgroundColor = UIColor.secondarySystemFill
+//        } else {
+//            contentView.backgroundColor = UIColor.secondarySystemGroupedBackground
+//
+//        }
+//    }
 }

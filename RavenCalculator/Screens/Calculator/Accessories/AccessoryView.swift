@@ -27,7 +27,7 @@ class RavenAccessoryView:UIView {
     }
     
     private func setup() {
-        self.backgroundColor = UIColor(hex: "262627")
+        self.backgroundColor = UIColor(named: "KeyboardBackground")
         stackView = UIStackView()
         stackView.axis = .vertical
         addSubview(stackView)

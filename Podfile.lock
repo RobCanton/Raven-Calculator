@@ -1,4 +1,9 @@
 PODS:
+  - AppAuth (1.3.0):
+    - AppAuth/Core (= 1.3.0)
+    - AppAuth/ExternalUserAgent (= 1.3.0)
+  - AppAuth/Core (1.3.0)
+  - AppAuth/ExternalUserAgent (1.3.0)
   - Expression (0.13.2)
   - Firebase/Analytics (6.17.0):
     - Firebase/Core
@@ -71,6 +76,10 @@ PODS:
   - GoogleDataTransportCCTSupport (1.4.0):
     - GoogleDataTransport (~> 4.0)
     - nanopb (~> 0.3.901)
+  - GoogleSignIn (5.0.2):
+    - AppAuth (~> 1.2)
+    - GTMAppAuth (~> 1.0)
+    - GTMSessionFetcher/Core (~> 1.1)
   - GoogleUtilities/AppDelegateSwizzler (6.5.1):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -93,7 +102,14 @@ PODS:
     - LightweightObservable (~> 2.0)
   - GradientProgressBar (2.0.3):
     - LightweightObservable (~> 2.0)
+  - GTMAppAuth (1.0.0):
+    - AppAuth/Core (~> 1.0)
+    - GTMSessionFetcher (~> 1.1)
+  - GTMSessionFetcher (1.3.1):
+    - GTMSessionFetcher/Full (= 1.3.1)
   - GTMSessionFetcher/Core (1.3.1)
+  - GTMSessionFetcher/Full (1.3.1):
+    - GTMSessionFetcher/Core (= 1.3.1)
   - leveldb-library (1.22)
   - LightweightObservable (2.1.0)
   - nanopb (0.3.9011):
@@ -110,11 +126,13 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Functions
+  - GoogleSignIn
   - GradientLoadingBar (~> 2.0)
   - GradientProgressBar (~> 2.0)
 
 SPEC REPOS:
   trunk:
+    - AppAuth
     - Expression
     - Firebase
     - FirebaseAnalytics
@@ -130,9 +148,11 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleDataTransportCCTSupport
+    - GoogleSignIn
     - GoogleUtilities
     - GradientLoadingBar
     - GradientProgressBar
+    - GTMAppAuth
     - GTMSessionFetcher
     - leveldb-library
     - LightweightObservable
@@ -140,6 +160,7 @@ SPEC REPOS:
     - PromisesObjC
 
 SPEC CHECKSUMS:
+  AppAuth: 73574f3013a1e65b9601a3ddc8b3158cce68c09d
   Expression: d701814068e202209e82c3e4d7cc573d3028e6e8
   Firebase: 2672e5636b42f977177716317e68346ae5e9de25
   FirebaseAnalytics: cf95d3aab897612783020fbd98401d5366f135ee
@@ -155,15 +176,17 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: d0560d915abf15e692e8538ba1d58442217b6aff
   GoogleDataTransport: 47fe3b8e1673e5187dfd615656a3c5034f150d69
   GoogleDataTransportCCTSupport: 36f69887fd212db6d7ef4dd45ba44523717a434e
+  GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
   GoogleUtilities: 06eb53bb579efe7099152735900dd04bf09e7275
   GradientLoadingBar: ad7664a77f8ed743bfcbc0c8b1fbfc5464314dc1
   GradientProgressBar: f11fb57cffc615a4794da558ce283171a992130a
+  GTMAppAuth: 4deac854479704f348309e7b66189e604cf5e01e
   GTMSessionFetcher: cea130bbfe5a7edc8d06d3f0d17288c32ffe9925
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   LightweightObservable: 6cd1c52bf48ba8d34d3f7a61034206adcb349760
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
 
-PODFILE CHECKSUM: fccddfcf95c66250b059bed96e3c8d18ac65bae0
+PODFILE CHECKSUM: 12784ed439805d71b53ff18e9c82ce77af4152de
 
 COCOAPODS: 1.8.4

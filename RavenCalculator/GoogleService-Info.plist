@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>333443983079-b20dece58jllbd6hgpthmnt118v45shq.apps.googleusercontent.com</string>
+	<string>397169543211-fpcjdl4trro8rrufm5c5am805m2l7ful.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.333443983079-b20dece58jllbd6hgpthmnt118v45shq</string>
+	<string>com.googleusercontent.apps.397169543211-fpcjdl4trro8rrufm5c5am805m2l7ful</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAF04QxXs-t1df3KAFqqWZWPxPnTkpr7pA</string>
+	<string>AIzaSyDFijc8xV9gYOc3rFn1DbKiUYIru1QYr-E</string>
 	<key>GCM_SENDER_ID</key>
-	<string>333443983079</string>
+	<string>397169543211</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.robertcanton.RavenCalculator</string>
+	<string>com.robertcanton.stockraven</string>
 	<key>PROJECT_ID</key>
-	<string>raven-calculator</string>
+	<string>stock-raven</string>
 	<key>STORAGE_BUCKET</key>
-	<string>raven-calculator.appspot.com</string>
+	<string>stock-raven.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:333443983079:ios:7e7376ecd6b6c29527e442</string>
+	<string>1:397169543211:ios:dae5bd1dbd443bbc35026e</string>
 	<key>DATABASE_URL</key>
-	<string>https://raven-calculator.firebaseio.com</string>
+	<string>https://stock-raven.firebaseio.com</string>
 </dict>
 </plist>

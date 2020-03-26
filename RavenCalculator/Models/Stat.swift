@@ -11,39 +11,32 @@ import Foundation
 
 enum Stat:String {
     
-    
     case price = "price"
-    case change = "change"
-    case dividend = "dividend"
-    case dividendYield = "dividendyield"
-    case employees = "employees"
-    case marketcap = "marketcap"
-    case week52change = "week52change"
-    case week52high = "week52high"
-    case week52low = "week52low"
-    case peRatio = "peratio"
-    case beta = "beta"
     case volume = "volume"
+    case change = "change"
+    case changePercent = "changepercent"
+    case open = "open"
+    case close = "close"
+    case previousClose = "previousclose"
+    case previousVolume = "previousvolume"
+    case high = "high"
+    case low = "low"
+    case marketCap = "marketcap"
+    case avgTotalVolume = "avgtotalvolume"
+    case week52High = "week52high"
+    case week52Low = "week52low"
+    case ytdChange = "ytdchange"
+    case peRatio = "peratio"
     
     static let all = [
-        price, change, dividend, dividendYield,
-        employees, marketcap, week52change,
-        week52high, week52low, peRatio, beta, volume
+        price, volume, change, changePercent,
+        open, close, previousClose, previousVolume,
+        high, low, marketCap, avgTotalVolume,
+        week52High, week52Low, ytdChange, peRatio
     ]
     
     var searchable:String {
         return self.rawValue
-    }
-    
-    var displayName:String {
-        switch self {
-        case .dividendYield:
-            return "dividendYield"
-        case .peRatio:
-            return "peRatio"
-        default:
-            return rawValue
-        }
     }
     
 }

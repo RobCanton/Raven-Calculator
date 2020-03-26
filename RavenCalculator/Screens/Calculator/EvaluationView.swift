@@ -28,7 +28,7 @@ class EvaluationView: UIView {
     }
     
     private func setup() {
-        self.backgroundColor = UIColor.tertiarySystemGroupedBackground
+        self.backgroundColor = UIColor.secondarySystemGroupedBackground
         
         valueLabel = UILabel()
         valueLabel.font = UIFont.monospacedSystemFont(ofSize: 22, weight: .medium)
@@ -68,7 +68,9 @@ class EvaluationView: UIView {
         
     }
     
+    var isSolving = false
     func startSolving() {
+        isSolving = false
         valueLabel.alpha = 0.0
         loadingBar.fadeIn(duration: 0.3)
         
@@ -83,6 +85,22 @@ class EvaluationView: UIView {
             self.valueLabel.alpha = 1.0
         }, completion: nil)
         
+    }
+    
+    func setError(_ error: Error) {
+        valueLabel.text = "N/A"
+        loadingBar.fadeOut(duration: 0.5)
+        
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseOut, animations: {
+            self.valueLabel.alpha = 1.0
+        }, completion: nil)
+    }
+    
+    func hide() {
+        isSolving = false
+        UIView.animate(withDuration: 0.4, delay: 0.0, options: .curveEaseInOut, animations: {
+            self.valueLabel.alpha = 0.0
+        }, completion: nil)
     }
     
 }
